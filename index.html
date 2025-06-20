@@ -155,7 +155,7 @@
       const user = parseJwt(response.credential);
       const nome = user.name || 'Usuário';
 
-      // Oculta o botão de login
+      // Oculta botão login
       document.querySelector('.g_id_signin').style.display = 'none';
 
       // Exibe nome do usuário
@@ -164,7 +164,7 @@
       // Mostra o conteúdo
       sidebar.style.display = 'flex';
 
-      // Carrega aulas
+      // Carrega aulas da planilha
       fetch(apiUrl)
         .then(res => res.json())
         .then(dados => {
@@ -186,6 +186,7 @@
         })
         .catch(err => {
           aulaList.innerHTML = '<li>Erro ao carregar aulas</li>';
+          console.error(err);
         });
     }
 
